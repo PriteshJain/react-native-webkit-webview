@@ -1,52 +1,54 @@
 {
-    "name":             "react-native-webview-crosswalk",
-    "version":          "0.5.0",
-    "description":      "Crosswalk's WebView for React Native on Android",
-    "scripts":          {
+    "name": "react-native-webkit-webview",
+    "version": "0.1.0",
+    "description": "Better performance WebView component",
+    "scripts": {
         "postinstall": "node get_library.js",
-        "lint":        "eslint ."
+        "lint": "eslint ."
     },
-    "repository":       {
+    "repository": {
         "type": "git",
-        "url":  "git+https://github.com/jordansexton/react-native-webview-crosswalk.git"
+        "url": "git+https://github.com/react-native-china/react-native-webkit-webview.git"
     },
-    "keywords":         [
+    "keywords": [
         "react",
         "native",
         "react native",
         "webview",
         "crosswalk",
         "xwalk",
-        "android"
+        "android",
+        "webkit"
     ],
-    "author":           "Jordan Sexton <jordan@jordansexton.com>",
-    "contributors":     [
-        {
-            "name":  "Jordan Sexton",
-            "email": "jordan@jordansexton.com"
-        }, {
-            "name":  "Faruq Rasid",
-            "email": "github@ruqqq.sg"
-        }, {
-            "name": "Daniel Vicory",
-            "email": "dvicory@gmail.com"
-        }
-    ],
-    "license":          "MIT",
-    "bugs":             {
-        "url": "https://github.com/jordansexton/react-native-webview-crosswalk/issues"
+    "author": "Oboo Chin <oboochin@gmail.com>",
+    "contributors": [{
+        "name": "Jordan Sexton",
+        "email": "jordan@jordansexton.com"
+    }, {
+        "name": "Faruq Rasid",
+        "email": "github@ruqqq.sg"
+    }, {
+        "name": "Daniel Vicory",
+        "email": "dvicory@gmail.com"
+    },{
+        "name":"oboo chin",
+        "email":"oboochin@gmail.com"
+    }],
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/react-native-china/react-native-webkit-webview/issues"
     },
-    "homepage":         "https://github.com/jordansexton/react-native-webview-crosswalk",
+    "homepage": "https://github.com/react-native-china/react-native-webkit-webview",
     "peerDependencies": {
-        "react":        ">=15.3.0",
+        "react": ">=15.3.0",
         "react-native": ">=0.32.0"
     },
-    "dependencies":     {
+    "dependencies": {
         "node-wget": "0.4.2"
     },
-    "devDependencies":  {
-        "babel-eslint":        "6.1.2",
-        "eslint":              "3.2.2",
+    "devDependencies": {
+        "babel-eslint": "6.1.2",
+        "eslint": "3.2.2",
         "eslint-plugin-react": "6.0.0"
     }
 }
