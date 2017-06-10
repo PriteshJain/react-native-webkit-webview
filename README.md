@@ -1,5 +1,12 @@
 # react-native-webkit-webview
 
+[![NPM](https://nodei.co/npm/react-native-webkit-webview.png?downloads=true&stars=true)](https://nodei.co/npm/react-native-webkit-webview/)
+
+
+[![Build Status](https://travis-ci.org/react-native-china/react-native-webkit-webview.svg?branch=master)](https://travis-ci.org/react-native-china/react-native-webkit-webview)
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.png?v=103)](https://opensource.org/licenses/mit-license.php)
+[![depedencies](https://david-dm.org/react-native-china/react-native-webkit-webview.svg)](https://github.com/react-native-china/react-native-webkit-webview)
+
 Forked from [react-native-webview-crosswalk](https://github.com/jordansexton/react-native-webview-crosswalk)
 
 Cross-platform Webview component,With better performance on android.
@@ -56,11 +63,12 @@ dependencies {
   compile project(':CrosswalkWebView')                             // <--- add this line
 }
 ```
+
 * Register package :
 
-Add code into MainActivity.java
+* In `android/app/src/main/java/com/YOUR_PROJECT_NAME/MainActivity.java`
 
-```java
+```diff
 import com.jordansexton.react.crosswalk.webview.CrosswalkWebViewPackage;    // <--- add this line
 
 public class MainApplication extends Application implements ReactApplication {
@@ -78,6 +86,8 @@ public class MainApplication extends Application implements ReactApplication {
 
 }
 ```
+
+#### Usage
 
 ## License
 MIT
