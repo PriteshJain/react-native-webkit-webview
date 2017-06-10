@@ -89,5 +89,62 @@ public class MainApplication extends Application implements ReactApplication {
 
 #### Usage
 
+```javascript
+// DemoComponents.js
+import React,{ Component } from 'react'
+import { View,TouchableHighlight,Text } from 'react-native'
+import WebkitView from 'react-native-webkit-webview'
+
+import localDemoPage from './demoPage.html'
+
+export default class DemoComponents extends Component{
+  render(){
+    return (
+      <View>
+        <TouchableHighlight onPress={ this.passMessageToWebpage }>
+          <Text>Tell webpage some message</Text>
+        </TouchableHighlight>
+        <WebkitView
+          source={ localDemoPage // local file usage} 
+          source={{ uri:'http://www.demo.com/path' //link usage }}
+          injectedJavascript="setTimeout(function(){document.write('WONDERFUL')},1000)"
+          onMessage = { this.messageHandler }
+          ref={ (webkitView) => { this.webkitView = webkitView } }
+        />
+      </View>
+    )
+  }
+
+  passMessageToWebpage = () => {
+    this.webkitView.postMessage('hello there')
+  }
+
+  messageHandler = (ev) => {
+    console.log(ev)
+  }
+}
+```
+
+```html
+<!-- demoPage.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    window.addEventListener('message',(ev) => {
+      console.log(ev);
+    })
+  </script>
+</body>
+</html>
+
+```
+
+
+
 ## License
 MIT
