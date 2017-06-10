@@ -68,7 +68,7 @@ dependencies {
 
 * In `android/app/src/main/java/com/YOUR_PROJECT_NAME/MainActivity.java`
 
-```diff
+```java
 import com.jordansexton.react.crosswalk.webview.CrosswalkWebViewPackage;    // <--- add this line
 
 public class MainApplication extends Application implements ReactApplication {
