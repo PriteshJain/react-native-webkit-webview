@@ -152,7 +152,7 @@ public class CrosswalkWebViewGroupManager extends ViewGroupManager<CrosswalkWebV
                 try {
                     JSONObject eventInitDict = new JSONObject();
                     eventInitDict.put("data", args.getString(0));
-                    view.evaluateJavascript("document.dispatchEvent(new MessageEvent('message', " + eventInitDict.toString() + "))", null);
+                    view.evaluateJavascript("window.dispatchEvent(new MessageEvent('message', " + eventInitDict.toString() + "))", null);
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
