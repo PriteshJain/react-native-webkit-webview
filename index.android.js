@@ -11,7 +11,7 @@ var resolveAssetSource = require('react-native/Libraries/Image/resolveAssetSourc
 
 var WEBVIEW_REF = 'crosswalkWebView';
 
-class CrosswalkWebView extends PureComponent{
+class WebkitView extends PureComponent{
 
     static JSNavigationScheme;
 
@@ -98,7 +98,7 @@ class CrosswalkWebView extends PureComponent{
     }
 }
 
-CrosswalkWebView.propTypes = {
+WebkitView.propTypes = {
     injectedJavaScript:      PropTypes.string,
     localhost:               PropTypes.bool.isRequired,
     onError:                 PropTypes.func,
@@ -118,14 +118,14 @@ CrosswalkWebView.propTypes = {
     ...View.propTypes
 }
 
-CrosswalkWebView.defaultProps = {
+WebkitView.defaultProps = {
     localhost: false
 }
 
-var NativeCrosswalkWebView = requireNativeComponent('CrosswalkWebView', CrosswalkWebView, {
+var NativeCrosswalkWebView = requireNativeComponent('CrosswalkWebView', WebkitView, {
     nativeOnly: {
         messagingEnabled: PropTypes.bool,
     },
 });
 
-export default CrosswalkWebView;
+export default WebkitView;
