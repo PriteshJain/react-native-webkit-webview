@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import android.util.AttributeSet;
 import android.webkit.ValueCallback;
 
 import com.facebook.react.bridge.LifecycleEventListener;
@@ -22,8 +23,6 @@ import com.facebook.react.views.webview.events.TopMessageEvent;
 import javax.annotation.Nullable;
 
 class CrosswalkWebView extends XWalkView implements LifecycleEventListener {
-
-    private final Activity activity;
 
     private final EventDispatcher eventDispatcher;
 
@@ -51,10 +50,8 @@ class CrosswalkWebView extends XWalkView implements LifecycleEventListener {
         }
     }
 
-    public CrosswalkWebView (ReactContext reactContext, Activity _activity) {
-        super(reactContext, _activity);
-
-        activity = _activity;
+    public CrosswalkWebView (ReactContext reactContext) {
+        super(reactContext.getCurrentActivity(), (AttributeSet)null);
         eventDispatcher = reactContext.getNativeModule(UIManagerModule.class).getEventDispatcher();
         resourceClient = new ResourceClient(this);
         uiClient = new UIClient(this);
@@ -135,10 +132,10 @@ class CrosswalkWebView extends XWalkView implements LifecycleEventListener {
     public void linkBridge() {
         if (messagingEnabled) {
             this.evaluateJavascript(
-                "window.originalPostMessage = window.postMessage," +
-                "window.postMessage = function(data) {" +
-                BRIDGE_NAME + ".postMessage(String(data));" +
-            "}", null);
+                    "window.originalPostMessage = window.postMessage," +
+                            "window.postMessage = function(data) {" +
+                            BRIDGE_NAME + ".postMessage(String(data));" +
+                            "}", null);
         }
     }
 
@@ -249,7 +246,7 @@ class CrosswalkWebView extends XWalkView implements LifecycleEventListener {
 
         private void overrideUri (Uri uri) {
             Intent action = new Intent(Intent.ACTION_VIEW, uri);
-            activity.startActivity(action);
+            getContext().startActivity(action);
         }
     }
 

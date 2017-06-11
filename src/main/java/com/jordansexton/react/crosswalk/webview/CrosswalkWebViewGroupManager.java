@@ -49,19 +49,39 @@ public class CrosswalkWebViewGroupManager extends ViewGroupManager<CrosswalkWebV
         return REACT_CLASS;
     }
 
+
+    private Runnable onDropViewInstanceCallCack = new Runnable() {
+        @Override
+        public void run() {
+
+        }
+    };
+
     @Override
-    public CrosswalkWebView createViewInstance (ThemedReactContext context) {
-        Activity _activity = reactContext.getCurrentActivity();
-        CrosswalkWebView crosswalkWebView = new CrosswalkWebView(context, _activity);
+    public CrosswalkWebView createViewInstance (final ThemedReactContext context) {
+
+        final CrosswalkWebView crosswalkWebView = new CrosswalkWebView(context);
+        final XWalkActivityEventListener listener = new XWalkActivityEventListener(crosswalkWebView);
+
         context.addLifecycleEventListener(crosswalkWebView);
-        reactContext.addActivityEventListener(new XWalkActivityEventListener(crosswalkWebView));
+        context.addActivityEventListener(listener);
+
+        onDropViewInstanceCallCack = new Runnable() {
+            @Override
+            public void run() {
+                context.removeLifecycleEventListener(crosswalkWebView);
+                context.removeActivityEventListener(listener);
+            }
+        };
+
+
         return crosswalkWebView;
     }
 
     @Override
     public void onDropViewInstance(CrosswalkWebView view) {
         super.onDropViewInstance(view);
-        ((ThemedReactContext) view.getContext()).removeLifecycleEventListener((CrosswalkWebView) view);
+        onDropViewInstanceCallCack.run();
         view.onDestroy();
     }
 
@@ -152,7 +172,7 @@ public class CrosswalkWebViewGroupManager extends ViewGroupManager<CrosswalkWebV
                 try {
                     JSONObject eventInitDict = new JSONObject();
                     eventInitDict.put("data", args.getString(0));
-                    view.evaluateJavascript("window.dispatchEvent(new MessageEvent('message', " + eventInitDict.toString() + "))", null);
+                    view.evaluateJavascript("document.dispatchEvent(new MessageEvent('message', " + eventInitDict.toString() + "))", null);
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
