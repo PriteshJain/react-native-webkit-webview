@@ -29,38 +29,38 @@ cp node_modules/react-native-webkit-webview/libs/xwalk_core_library-22.52.561.4.
 
 * In `android/setting.gradle`
 
-```gradle
+```diff
 ...
-include ':CrosswalkWebView', ':app'
-project(':CrosswalkWebView').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-webkit-webview')
++ include ':CrosswalkWebView', ':app'
++ project(':CrosswalkWebView').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-webkit-webview')
 ```
 
 ### Include libs in your Android project
 
 * In `android/build.gradle`
 
-```gradle
+```diff
 ...
 allprojects {
     repositories {
         mavenLocal()
         jcenter()
 
-        flatDir {          // <--- add this line
-            dirs 'libs'    // <--- add this line
-        }                  // <--- add this line
++        flatDir {
++            dirs 'libs'
++        }
     }
 }
 ```
 
 * In `android/app/build.gradle`
 
-```gradle
+```diff
 ...
 dependencies {
   ...
-  compile (name: "xwalk_core_library-22.52.561.4", ext: "aar")     // <--- add this line
-  compile project(':CrosswalkWebView')                             // <--- add this line
++  compile (name: "xwalk_core_library-22.52.561.4", ext: "aar")
++  compile project(':CrosswalkWebView')
 }
 ```
 
@@ -68,8 +68,8 @@ dependencies {
 
 * In `android/app/src/main/java/com/YOUR_PROJECT_NAME/MainActivity.java`
 
-```java
-import com.jordansexton.react.crosswalk.webview.CrosswalkWebViewPackage;    // <--- add this line
+```diff
++ import com.jordansexton.react.crosswalk.webview.CrosswalkWebViewPackage;
 
 public class MainApplication extends Application implements ReactApplication {
   ......
@@ -78,7 +78,7 @@ public class MainApplication extends Application implements ReactApplication {
   protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
-        new CrosswalkWebViewPackage()    // <--- add this line
++       new CrosswalkWebViewPackage()    // <--- add this line
     );
   }
 
