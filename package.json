@@ -2,6 +2,10 @@
     "name": "react-native-webkit-webview",
     "version": "0.6.0",
     "description": "Better performance WebView component",
+    "scripts": {
+        "postinstall": "node get_library.js",
+        "lint": "eslint ."
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/react-native-china/react-native-webkit-webview.git"
