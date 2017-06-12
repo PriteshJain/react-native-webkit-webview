@@ -1,6 +1,6 @@
 {
     "name": "react-native-webkit-webview",
-    "version": "0.5.0",
+    "version": "0.6.0",
     "description": "Better performance WebView component",
     "repository": {
         "type": "git",
@@ -17,19 +17,24 @@
         "webkit"
     ],
     "author": "Oboo Chin <oboochin@gmail.com>",
-    "contributors": [{
-        "name": "Jordan Sexton",
-        "email": "jordan@jordansexton.com"
-    }, {
-        "name": "Faruq Rasid",
-        "email": "github@ruqqq.sg"
-    }, {
-        "name": "Daniel Vicory",
-        "email": "dvicory@gmail.com"
-    },{
-        "name":"oboo chin",
-        "email":"oboochin@gmail.com"
-    }],
+    "contributors": [
+        {
+            "name": "Jordan Sexton",
+            "email": "jordan@jordansexton.com"
+        },
+        {
+            "name": "Faruq Rasid",
+            "email": "github@ruqqq.sg"
+        },
+        {
+            "name": "Daniel Vicory",
+            "email": "dvicory@gmail.com"
+        },
+        {
+            "name": "oboo chin",
+            "email": "oboochin@gmail.com"
+        }
+    ],
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/react-native-china/react-native-webkit-webview/issues"

@@ -1,7 +1,5 @@
 # react-native-webkit-webview
 
-## WONT'T WORK WELL UNTIL 1.0.0
-
 [![NPM](https://nodei.co/npm/react-native-webkit-webview.png?downloads=true&stars=true)](https://nodei.co/npm/react-native-webkit-webview/)
 
 
@@ -22,9 +20,9 @@ Cross-platform Webview component,With better performance on android.
 * From the root of your React Native project
 
 ```shell
-npm install react-native-webview-crosswalk --save
+npm install react-native-webkit-webview --save
 mkdir android/app/libs
-cp node_modules/react-native-webview-crosswalk/libs/xwalk_core_library-23.53.589.4.aar android/app/libs/
+cp node_modules/react-native-webkit-webview/libs/xwalk_core_library-22.52.561.4.aar android/app/libs/
 ```
 
 ### Include module in your Android project
@@ -34,7 +32,7 @@ cp node_modules/react-native-webview-crosswalk/libs/xwalk_core_library-23.53.589
 ```gradle
 ...
 include ':CrosswalkWebView', ':app'
-project(':CrosswalkWebView').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-webview-crosswalk')
+project(':CrosswalkWebView').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-webkit-webview')
 ```
 
 ### Include libs in your Android project
@@ -61,7 +59,7 @@ allprojects {
 ...
 dependencies {
   ...
-  compile (name: "xwalk_core_library-23.53.589.4", ext: "aar")     // <--- add this line
+  compile (name: "xwalk_core_library-22.52.561.4", ext: "aar")     // <--- add this line
   compile project(':CrosswalkWebView')                             // <--- add this line
 }
 ```
