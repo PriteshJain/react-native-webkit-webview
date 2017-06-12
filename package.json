@@ -1,6 +1,6 @@
 {
     "name": "react-native-webkit-webview",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "description": "Better performance WebView component",
     "scripts": {
         "postinstall": "node get_library.js",
@@ -42,6 +42,9 @@
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/react-native-china/react-native-webkit-webview/issues"
+    },
+    "dependencies": {
+        "node-wget": "0.4.2"
     },
     "homepage": "https://github.com/react-native-china/react-native-webkit-webview",
     "peerDependencies": {
