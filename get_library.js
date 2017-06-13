@@ -1,17 +1,17 @@
 'use strict';
 
-var version = '22.52.561.4';
-var beta    = '';
+var version  = '22.52.561.4';
+var beta     = '';
 
-var exec = require('child_process').exec;
-var fs   = require('fs');
-var wget = require('node-wget');
+var platform = require('os').platform();
+var exec     = require('child_process').execSync;
+var fs       = require('fs');
+var wget     = require('node-wget');
 
 function prepareLibrary (filePath) {
     try {
         fs.unlinkSync('./libs/' + filePath);
-    }
-    catch (e) {
+    } catch (e) {
         console.log('No previous file');
     }
     fs.renameSync(filePath, './libs/' + filePath);
@@ -22,11 +22,15 @@ function handleDownloaded (error, data) {
     if (error) {
         console.error('Failed downloading file');
         console.error(error);
-    }
-    else {
-        exec('node ./handle_files.js');
-        modifyGuide()
+    } else {
         prepareLibrary(data.filepath);
+
+        if( /darwin|linux/.test(platform) ){
+            exec('mkdir ../../android/app/libs');
+            exec('cp ./libs/xwalk_core_library-' + version + '.aar ../../android/app/libs/')
+        }
+
+        modifyGuide()
     }
 }
 
@@ -43,5 +47,5 @@ function modifyGuide(){
     console.log('\x1b[33m','For','\x1b[36m\x1b[1m','Linux-like OS','\x1b[33m','you can use')
     console.log('\x1b[34m','cat ./node_modules/react-native-webkit-webview/modify_java_project_steps')
     console.log('\x1b[33m','to show setps to modify project files.\n')
-    console.log('\x1b[33m','For Windows,you can open README.md for further modify info.\n')
+    console.log('\x1b[33m','For Windows,you should open README.md for further modify info.\n')
 }
