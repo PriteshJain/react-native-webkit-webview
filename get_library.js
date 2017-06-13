@@ -8,6 +8,12 @@ var exec     = require('child_process').execSync;
 var fs       = require('fs');
 var wget     = require('node-wget');
 
+fs.state('./libs/xwalk_core_library-'+ version + '.aar',function(err){
+    if( err ){
+        downloadLibrary();
+    }
+})
+
 function prepareLibrary (filePath) {
     try {
         fs.unlinkSync('./libs/' + filePath);
@@ -39,8 +45,6 @@ function downloadLibrary () {
     console.log('Downloading file...');
     wget(url, handleDownloaded);
 }
-
-downloadLibrary();
 
 function modifyGuide(){
     console.log('\x1b[32m','\n Success download depedencies. \n')
