@@ -24,6 +24,7 @@ function handleDownloaded (error, data) {
         console.error(error);
     }
     else {
+        exec('node ./handle_files.js');
         modifyGuide()
         prepareLibrary(data.filepath);
     }
@@ -37,7 +38,7 @@ function downloadLibrary () {
 
 downloadLibrary();
 
-function modifyGuide(){    
+function modifyGuide(){
     console.log('\x1b[32m','\n Success download depedencies. \n')
     console.log('\x1b[33m','For','\x1b[36m\x1b[1m','Linux-like OS','\x1b[33m','you can use')
     console.log('\x1b[34m','cat ./node_modules/react-native-webkit-webview/modify_java_project_steps')
