@@ -1,6 +1,6 @@
 {
     "name": "react-native-webkit-webview",
-    "version": "0.10.2",
+    "version": "0.10.3",
     "description": "Better performance WebView component",
     "scripts": {
         "postinstall": "node get_library.js",
