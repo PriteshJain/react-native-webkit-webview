@@ -8,7 +8,7 @@ var exec     = require('child_process').execSync;
 var fs       = require('fs');
 var wget     = require('node-wget');
 
-fs.state('./libs/xwalk_core_library-'+ version + '.aar',function(err){
+fs.stat('./libs/xwalk_core_library-'+ version + '.aar',function(err){
     if( err ){
         downloadLibrary();
     }
