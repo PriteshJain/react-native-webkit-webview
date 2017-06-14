@@ -11,6 +11,8 @@ Forked from [react-native-webview-crosswalk](https://github.com/jordansexton/rea
 
 Cross-platform Webview component,With better performance on android.
 
+### Npm scripts sucks.Yarn recommended
+
 ### Dependencies
 
 `react-native >=0.32.0`, `react >= 15.3.0`

@@ -28,12 +28,6 @@ function handleDownloaded (error, data) {
         console.error(error);
     } else {
         prepareLibrary(data.filepath);
-
-        if( /darwin|linux/.test(platform) ){
-            exec('mkdir ../../android/app/libs');
-            exec('cp ./libs/xwalk_core_library-' + version + '.aar ../../android/app/libs/')
-        }
-
         modifyGuide()
     }
 }
