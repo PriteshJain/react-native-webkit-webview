@@ -1,5 +1,3 @@
-'use strict';
-
 var version  = '22.52.561.4';
 var beta     = '';
 
