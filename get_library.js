@@ -42,6 +42,6 @@ function modifyGuide(){
     console.log('\x1b[32m','\n Success download depedencies. \n')
     console.log('\x1b[33m','For','\x1b[36m\x1b[1m','Linux-like OS','\x1b[33m','you can use')
     console.log('\x1b[34m','cat ./node_modules/react-native-webkit-webview/modify_java_project_steps')
-    console.log('\x1b[33m','to show setps to modify project files.\n')
+    console.log('\x1b[33m','to show steps to modify project files.\n')
     console.log('\x1b[33m','For Windows,you should open README.md for further modify info.\n')
 }
