@@ -68,7 +68,7 @@ dependencies {
 
 * Register package :
 
-* In `android/app/src/main/java/com/YOUR_PROJECT_NAME/MainActivity.java`
+* In `android/app/src/main/java/com/YOUR_PROJECT_NAME/MainApplication.java`
 
 ```diff
 + import com.jordansexton.react.crosswalk.webview.CrosswalkWebViewPackage;
@@ -107,9 +107,9 @@ export default class DemoComponents extends Component{
           <Text>Tell webpage some message</Text>
         </TouchableHighlight>
         <WebkitView
-          source={ localDemoPage // local file usage} 
+          source={ localDemoPage // local file usage}
           source={{ uri:'http://www.demo.com/path' //link usage }}
-          injectedJavascript="setTimeout(function(){document.write('WONDERFUL')},1000)"
+          injectedJavaScript="setTimeout(function(){document.write('WONDERFUL')},1000)"
           onMessage = { this.messageHandler }
           ref={ (webkitView) => { this.webkitView = webkitView } }
         />

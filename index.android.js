@@ -1,7 +1,8 @@
 'use strict';
 
-import React, { PropTypes,PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import ReactNative, { requireNativeComponent, View } from 'react-native';
+import PropTypes from 'prop-types';
 
 var {
     NativeModules: { UIManager, CrosswalkWebViewManager: { JSNavigationScheme } }
